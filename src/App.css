@@ -1,8 +1,16 @@
 .App {
-  padding: 30px;
-  display: flex;
+    padding: 30px;
+    display: flex;
 }
 
 .App > div {
-  margin-right: 50px;
+    margin-right: 50px;
+}
+
+.is-done {
+    opacity: 0.5;
+}
+
+.active-filter {
+    background-color: #117299;
 }
