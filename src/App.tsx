@@ -42,7 +42,7 @@ function App() {
         [todoListID_2]: [
             {id: v1(), title: "Milk", isDone: false},
             {id: v1(), title: "Bread", isDone: false},
-            {id: v1(), title: "Meat", isDone: true}
+            {id: v1(), title: "Meat", isDone: true},
         ]
     })
     function changeTodoListFilter(filter: FilterValuesType, todoListID: string) {
