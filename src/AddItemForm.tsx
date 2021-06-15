@@ -38,7 +38,6 @@ function AddItemForm(props: AddItemFormPropsType) {
                 value={title}
                 onChange={onChangeTitle}
                 onKeyPress={onKeyPressAddItem}
-
                 label={"Title"}
                 error={error}
                 helperText={error && "Title is required!"}

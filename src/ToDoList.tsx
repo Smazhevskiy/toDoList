@@ -24,7 +24,6 @@ function TodoList(props: PropsTodoListType) {
 
 
     const tasksJSXElements = props.tasks.map(t => {
-            // let taskClass = t.isDone ?  "is-done" : ""
             const removeTask = () => props.removeTask(t.id, props.todoListID)
             const changeTaskStatus = (e: ChangeEvent<HTMLInputElement>) => {
                 props.changeTaskStatus(t.id, e.target.checked, props.todoListID)
@@ -41,7 +40,6 @@ function TodoList(props: PropsTodoListType) {
                         />
                         <EditableSpan title={t.title} changeTitle={changeTaskTitle}/>
                     </span>
-                    {/*<span>{t.title}</span>*/}
                     <IconButton onClick={removeTask} color={"secondary"} >
                         <Delete/>
                     </IconButton>
