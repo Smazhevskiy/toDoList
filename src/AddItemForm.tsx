@@ -29,7 +29,6 @@ function AddItemForm(props: AddItemFormPropsType) {
         setTitle("")
     }
 
-
     return(
         <div>
             <TextField
@@ -38,11 +37,11 @@ function AddItemForm(props: AddItemFormPropsType) {
                 value={title}
                 onChange={onChangeTitle}
                 onKeyPress={onKeyPressAddItem}
+
                 label={"Title"}
                 error={error}
                 helperText={error && "Title is required!"}
             />
-
             <IconButton onClick={onClickAddItem} color={"primary"}>
                 <AddBox/>
             </IconButton>
