@@ -1,7 +1,7 @@
-import {TasksStateType} from '../App';
 import {TaskType} from '../Todolist';
 import {v1} from 'uuid';
 import {AddTodolistActionType, RemoveTodolistActionType} from './todolists-reducer';
+import {TasksStateType} from '../App';
 
 export type RemoveTaskActionType = {
     type: 'REMOVE-TASK',
@@ -42,7 +42,7 @@ export const tasksReducer = (state: TasksStateType = initialState, action: Actio
         case 'REMOVE-TASK': {
             const stateCopy = {...state}
             const tasks = stateCopy[action.todolistId];
-            const newTasks = tasks.filter(t => t.id !== action.taskId);
+            const newTasks = tasks.filter(t => t.id != action.taskId);
             stateCopy[action.todolistId] = newTasks;
             return stateCopy;
         }
@@ -59,28 +59,21 @@ export const tasksReducer = (state: TasksStateType = initialState, action: Actio
             return stateCopy;
         }
         case 'CHANGE-TASK-STATUS': {
+            let todolistTasks = state[action.todolistId];
+            let newTasksArray = todolistTasks
+                .map(t => t.id === action.taskId ? {...t, isDone: action.isDone} : t);
 
-            return {
-                ...state,
-                [action.todolistId]: state[action.todolistId].map(
-                    task => {
-                      if (task.id === action.taskId) return {...task, isDone: action.isDone}
-                      else return task
-            }
-                )
-            };
+            state[action.todolistId] = newTasksArray;
+            return ({...state});
         }
         case 'CHANGE-TASK-TITLE': {
+            let todolistTasks = state[action.todolistId];
+            // найдём нужную таску:
+            let newTasksArray = todolistTasks
+                .map(t => t.id === action.taskId ? {...t, title: action.title} : t);
 
-            return {
-                ...state,
-                [action.todolistId]: state[action.todolistId].map(
-                    task => {
-                        if (task.id === action.taskId) return {...task, title: action.title}
-                        else return task
-                    }
-                )
-            };
+            state[action.todolistId] = newTasksArray;
+            return ({...state});
         }
         case 'ADD-TODOLIST': {
             return {
