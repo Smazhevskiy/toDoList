@@ -1,5 +1,6 @@
 {
   "name": "todolist-14",
+  "homepage": "HTTP://Smazhevskiy.github.io/toDoList",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,6 +20,8 @@
     "@types/uuid": "^8.3.1",
     "axios": "^0.21.1",
     "formik": "^2.2.9",
+    "gh-pages": "^3.2.3",
+    "ghpages": "^0.0.10",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
@@ -34,7 +37,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
